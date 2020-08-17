@@ -1,0 +1,1 @@
+# Estudos com Banco de Dados Sequenciais, usando o DB: Postgres
