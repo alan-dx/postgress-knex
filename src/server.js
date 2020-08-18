@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json())
 app.use(routes);
 
-//net found
+//net found => Middleware para erros 404 (Not found)
 app.use((req,res,next) => {
     const error = new Error('Not found')
     error.status = 404
