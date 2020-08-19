@@ -10,6 +10,8 @@ A pasta migration não pode ser simplismente movida para dentro de outra, pois o
 
 npx knex migrate:make create_table_users => Criando a migration que será utilizada para gerar a tabela users;
 
+o método up é chamdo quando cria a migration e down é chamdo quando deseja deletar-lo
+
 npx knex migrate:latest => Executa as últimas migrations criadas e cria as tabelas de fato, lembrando que ele só executa apenas as que não forma executadas ainda;
 
 SEEDS => É o que cria (semeia) itens dentro de cada tabela do DB previamente, muito utilizado quando se quer inicializar o DB com usuários pré-cadastrados e configurados, literalmente "semear" o DB;
@@ -30,5 +32,5 @@ PAGINAÇÃO => Realiza a busca por partes com base em uma parametro page passado
 
 No Header pode se tanto passar informações como retornar informações pela api;
 
-where é tipo uma condicional
+where é tipo uma condicional que vem sempre da entrada principal, que pode ter um parâmetro ou dois, no caso de ter apenas um ele verifica se aquela coluna passada no primeiro parm existe, já no caso de dois parâmetros, no segundo parm é passado o valor que a coluna passada no 1º parm deve ter para ser selecionado.
 

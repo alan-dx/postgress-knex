@@ -1,0 +1,29 @@
+[33mcommit 97a00ec6faa5cabcdfa19c629360f071be8b793d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Alan Almeida <alanalmeida.emp@gmail.com>
+Date:   Tue Aug 18 01:23:21 2020 -0300
+
+    Paginação dos projetos
+
+[33mcommit 3d32f01aa773d33db0f19f5a5ea113739ef1ef4f[m
+Author: Alan Almeida <alanalmeida.emp@gmail.com>
+Date:   Mon Aug 17 22:51:54 2020 -0300
+
+    finalizado CRUD de usuários
+
+[33mcommit 7560d751b4334f0c539ebaa615df073b9f05b165[m
+Author: Alan Almeida <alanalmeida.emp@gmail.com>
+Date:   Mon Aug 17 13:53:16 2020 -0300
+
+    Usando knex
+
+[33mcommit e74d6908ab3d842649c61b0ecfada2fb80e95335[m
+Author: Alan Almeida <alanalmeida.emp@gmail.com>
+Date:   Sun Aug 16 23:52:24 2020 -0300
+
+    add dependecies
+
+[33mcommit 6d41719da5b583bf2163f9971d5cb18ab6daa601[m
+Author: Alan Almeida <alanalmeida.emp@gmail.com>
+Date:   Sun Aug 16 23:47:23 2020 -0300
+
+    First commit

@@ -3,6 +3,7 @@ const knex = require("../database");
 module.exports = {//Exporta diretamente como objeto
     async index(req,res) {
         const results = await knex('users')//Poderia utilizar o then() e o catch() sem usar o await e async
+        .where('deleted_at', null)//Onde deleted_at for nulo
 
         return res.json(results);
     },
@@ -44,7 +45,8 @@ module.exports = {//Exporta diretamente como objeto
 
             await knex('users')
             .where({ id })
-            .del()
+            .update('deleted_at', new Date())
+            
 
             return res.send()
         } catch (error) {

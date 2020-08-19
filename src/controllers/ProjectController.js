@@ -11,11 +11,12 @@ module.exports = {//Exporta diretamente como objeto
 
             const countObj = knex('projects').count()//Contando quantos projetos existem, mas SEM o await pois pode haver o tratamento
 
-            if (user_id) {//Continuando a query, ou seja tratando uma busca, caso exista o user_id. Se não for mandando a query ele retorna todoos os itens
+            if (user_id) {//Continuando a query, ou seja tratando uma busca, caso exista o user_id. Se não for mandando ao user_id na query ele retorna todoos os projetos
                 query
                     .where({ user_id: user_id })
                     .join('users', 'users.id', '=', 'projects.user_id')//(NOME_DA_TABELA, CONDICIONAL_DE_BUSCA) TRADUÇÃO = ENTRE NA TABELA USERS E BUSQUE TODAS AS INFORMAÇÕES EM QUE A SEGUINTE CONDIÇÃO SEJA VERDADEIRA: COLUNA ID DA TABELA USERS SEJA IGUAL A COLUNA USER.ID DA TABELA PROJECTS
                     .select('projects.*', 'users.username')//SELECIONE TUDO DA TABELA PROJECT E APENAS O USERNAME DA TABELA USERS
+                    .where('users.deleted_at', null)
 
                     countObj.where({ user_id })//where é tipo uma condicional, vai contar apenas os projetos com o user_id passado
             }
@@ -29,7 +30,7 @@ module.exports = {//Exporta diretamente como objeto
         } catch (error) {
             next(error)
         }
-
+        //1:33:51
     },
     async create(req,res,next) {
         try {
