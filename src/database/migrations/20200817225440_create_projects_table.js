@@ -1,5 +1,6 @@
+const {onUpdateTrigger} = require('../../../knexfile');
 
-exports.up = function(knex) {
+exports.up = async function(knex) {
   return knex.schema.createTable('projects', table => {
       table.increments('id')
       table.text('title')
@@ -12,9 +13,9 @@ exports.up = function(knex) {
         // .onUpdate('')//Para fazer a atualização em todos os projetos caso o usuário também sofra algum update
 
       table.timestamps(true, true)//Outra forma de fazer o created_at e o update_at, pelo fato de ser extremamente utilizado o knex já tras a opção como default
-  })
+  }).then(() => knex.raw(onUpdateTrigger('projects')))
 };
 
-exports.down = function(knex) {
+exports.down = async function(knex) {
   return knex.schema.dropTable('projects')
 };

@@ -1,5 +1,7 @@
 # Estudos com Banco de Dados Sequenciais, usando o DB: Postgres
 
+O BANCO DEVE SER CRIADO MANUALMENTE
+
 npx knex init => Cria o knexfile.js (Arquivo de configuração do DB utilizado);
 
 Na pasta database cria-se um arquivo index.js onde importa-se o knexfile e associa suas configurações com o módulo knex de fato;
@@ -10,7 +12,7 @@ A pasta migration não pode ser simplismente movida para dentro de outra, pois o
 
 npx knex migrate:make create_table_users => Criando a migration que será utilizada para gerar a tabela users;
 
-o método up é chamdo quando cria a migration e down é chamdo quando deseja deletar-lo
+o método up é chamdo quando cria a migration (migrate: latest) e down é chamdo quando realiza-se o rollback;
 
 npx knex migrate:latest => Executa as últimas migrations criadas e cria as tabelas de fato, lembrando que ele só executa apenas as que não forma executadas ainda;
 
@@ -33,4 +35,10 @@ PAGINAÇÃO => Realiza a busca por partes com base em uma parametro page passado
 No Header pode se tanto passar informações como retornar informações pela api;
 
 where é tipo uma condicional que vem sempre da entrada principal, que pode ter um parâmetro ou dois, no caso de ter apenas um ele verifica se aquela coluna passada no primeiro parm existe, já no caso de dois parâmetros, no segundo parm é passado o valor que a coluna passada no 1º parm deve ter para ser selecionado.
+
+PROCEDURES => São funções personalizadas dentro do DB SQL. No caso desse projeto foi utilizado para atualizar a data do updated_at quando o nome do usário (ou outra info) for atualizado;
+
+TRIGGER => Quando a procedure vai ser executada;
+
+npx knex migrate:rollback --all => Realiza um rollback (acessa o método down das migrations) e executa todas as migrations novamente, ou seja da um "repasse" no database
 
